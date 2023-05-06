@@ -1,3 +1,4 @@
+import React from 'react';
 import { Typography, TextField } from '@mui/material'
 import Dialog from '@material-ui/core/Dialog'
 import DialogActions from '@material-ui/core/DialogActions'
@@ -13,14 +14,14 @@ const ModalQuestion =  ({
         item
     }) => {
 
-    const [array, setArray] = useState([]);  
-    const [answer, setAnswer] = useState();  
+    const [array, setArray] = useState([]);
+    const [answer, setAnswer] = useState();
     const [openDialogConfirm, setOpenDialogConfirm] = useState(false)
-    
+
     useEffect(() => {
         const text = item['answer'].split('')
         let arrayTemp = []
-        text.map((temp, index) => { 
+        text.map((temp, index) => {
             return arrayTemp.push({id: index, word: temp, wordAnswer: temp === " " ? " " : "",})
         })
         setArray(arrayTemp)
@@ -31,7 +32,7 @@ const ModalQuestion =  ({
             setArray(array.map((item, index) => {
                 if(item.id === index) {
                   return { ...item, state: answer };
-                } 
+                }
                 else {
                   return item;
                 }
@@ -42,13 +43,13 @@ const ModalQuestion =  ({
     const handleClose = () => {
         setOpen()
     }
- 
+
     const handleChange = (event) => {
         if(event !== undefined) {
             setArray(array.map((item, index) => {
                 if(array[event.target.id].id === index) {
                   return { ...item, wordAnswer: event.target.value };
-                } 
+                }
                 else {
                   return item;
                 }
@@ -72,7 +73,7 @@ const ModalQuestion =  ({
         updateData(tempAnswer)
         setOpenDialogConfirm(true)
         if(answer)
-        {            
+        {
             setOpen(answer)
         }
     }
@@ -124,16 +125,16 @@ const ModalQuestion =  ({
                             return <TextField
                                 id={index.toString()}
                                 required
-                                type='text' 
+                                type='text'
                                 variant="outlined"
-                                autoComplete='off'  
+                                autoComplete='off'
                                 inputProps={{ maxLength: 1, style: { textAlign: 'center' } }}
                                 onChange={handleChange}
                             />
                         }
-                     })}    
+                     })}
                 </div>
-                
+
                 </DialogContentText>
             </DialogContent>
             <DialogActions>

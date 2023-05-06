@@ -1,3 +1,4 @@
+import React from 'react';
 import { Typography } from '@mui/material'
 import Dialog from '@material-ui/core/Dialog'
 import DialogActions from '@material-ui/core/DialogActions'
@@ -10,11 +11,11 @@ const ModalConfirm = ({
         setOpen,
         answer
     }) => {
-    
+
     const handleClose = () => {
         setOpen(false)
     }
- 
+
     return (
         <>
             <Dialog
