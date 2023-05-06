@@ -1,0 +1,16 @@
+.card {
+  display: 'flex';
+  flex: 1;
+  align-items: 'center';
+  justify-content: 'center';
+  flex-direction: 'column';
+  min-height: '14rem';
+  max-height: '14rem';
+  border: '5px solid #d3d4d5'; 
+}
+
+.card:hover {
+  transform: 'scale(1.05)';
+  transition: '0.3s';
+  box-shadow: "0 16px 70px -12.125px rgba(0,0,0,0.06)";
+}
