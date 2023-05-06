@@ -7,6 +7,8 @@ import DialogContentText from '@mui/material/DialogContentText'
 import Button from '@mui/material/Button'
 import { useEffect, useState } from 'react'
 import ModalConfirm from './ModalConfirm'
+import { useNavigate } from "react-router-dom";
+
 
 const ModalQuestion =  ({
         open,
@@ -17,6 +19,7 @@ const ModalQuestion =  ({
     const [array, setArray] = useState([]);
     const [answer, setAnswer] = useState();
     const [openDialogConfirm, setOpenDialogConfirm] = useState(false)
+    const navigate = useNavigate();
 
     useEffect(() => {
         const text = item['answer'].split('')
@@ -87,7 +90,8 @@ const ModalQuestion =  ({
                 'Content-Type': 'application/json',
             },
         })
-        window.location.reload()
+        // window.location.reload()
+        navigate('/');
     }
 
     return (
